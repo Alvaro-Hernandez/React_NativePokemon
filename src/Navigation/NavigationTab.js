@@ -14,7 +14,7 @@ export default function NavigationTab() {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
-        name="Favorite"
+        name="FavoriteTab"
         component={FavoriteNavigation}
         options={{
           tabBarLabel: "Favoritos",
@@ -26,7 +26,7 @@ export default function NavigationTab() {
         }}
       />
       <Tab.Screen
-        name="Pokedex"
+        name="PokedexTab"
         component={PokedexNavigation}
         options={{
           tabBarLabel: "",
@@ -35,7 +35,7 @@ export default function NavigationTab() {
         }}
       />
       <Tab.Screen
-        name="Account"
+        name="AccountTab"
         component={AccountNavigation}
         options={{
           tabBarLabel: "Cuenta",
