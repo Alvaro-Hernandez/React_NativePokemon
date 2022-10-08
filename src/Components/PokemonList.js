@@ -4,11 +4,11 @@ import PokemonCard from "./PokemonCard";
 export default function PokemonList(props) {
   //Vamos hacer un Object Destructuring de los pokemon
   const { pokemons } = props;
-  
+
   return (
     <FlatList
       data={pokemons}
-      numColumns={2}
+      numColumns={4}
       showsVerticalScrollIndicator={false}
       keyExtractor={(pokemon) => String(pokemon.id)}
       renderItem={({ item }) => <PokemonCard pokemon={item}/>}

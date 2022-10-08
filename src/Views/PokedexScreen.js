@@ -63,3 +63,12 @@ export default function PokedexScreen() {
     </SafeAreaView>
   );
 }
+
+
+//En Android, el tag SafeAreaView no funciona igual que en ios.
+//StyleSheet,Platform, StatusBar
+/*const styles = StyleSheet.create({
+  AndroidSafeArea: {
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+});*/
