@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView} from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import { getPokemonsApi, getPokemonsDeatilsByUrlApi } from "../Api/Pokemon";
 import PokemonList from "../Components/PokemonList";
 
 export default function PokedexScreen() {
   const [pokemons, setpokemons] = useState([]);
+  const [nextUrl, setNextUrl] = useState(null);
   //Co este console podemos observar la data de los pokemons
   //console.log("pokemon -------->", pokemons);
   useEffect(() => {
@@ -29,7 +30,9 @@ export default function PokedexScreen() {
     try {
       //Vamos a crear un for asincrono que nos permite traer la informacion uno por uno
       //pero este no trae otra la informacion sin acabar la anterior
-      const response = await getPokemonsApi();
+      const response = await getPokemonsApi(nextUrl);
+      //Esto me permite a mi traer la siguiente lista de Pokemon
+      setNextUrl(response.next);
 
       const pokemonArray = [];
       //Vamos a crear un bucle para controlar la interaccion de los pokemon
@@ -58,12 +61,17 @@ export default function PokedexScreen() {
   };
 
   return (
-    <SafeAreaView>
-      <PokemonList pokemons={pokemons}/>
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView>
+        <PokemonList
+          pokemons={pokemons}
+          loadPokemons={loadPokemons}
+          nextUrl={nextUrl}
+        />
+      </SafeAreaView>
+    </ScrollView>
   );
 }
-
 
 //En Android, el tag SafeAreaView no funciona igual que en ios.
 //StyleSheet,Platform, StatusBar

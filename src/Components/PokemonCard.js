@@ -4,7 +4,6 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
-  ScrollView,
 } from "react-native";
 import React from "react";
 import getColorByPokemonType from "../Utils/getColorByPokemonType";
@@ -19,7 +18,8 @@ export default function PokemonCard(props) {
 
   const pokemonColor = getColorByPokemonType(pokemon.type);
 
-  console.log(pokemonColor);
+  //Vamos a ver por consola los tipos de pokemon y sus colores
+  //console.log(pokemonColor);
 
   const bgStyle = { backgroundColor: pokemonColor, ...styles.bgStyles };
 
@@ -33,9 +33,7 @@ export default function PokemonCard(props) {
       <View style={styles.card}>
         <View style={styles.spacing}>
           <View style={bgStyle}>
-            <Text style={styles.number}>
-              #{`${pokemon.order}`.padStart(3, 0)}
-            </Text>
+            <Text style={styles.number}>#{`${pokemon.id}`.padStart(3, 0)}</Text>
             <Text style={styles.name}>{pokemon.name}</Text>
             <Image source={{ uri: pokemon.image }} style={styles.image} />
           </View>
@@ -67,6 +65,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
     paddingTop: 8,
+    paddingLeft: 7,
     textTransform: "capitalize",
   },
 
