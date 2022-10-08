@@ -13,13 +13,13 @@ export default function PokemonList(props) {
   return (
     <FlatList
       data={pokemons}
-      numColumns={2}
+      numColumns={4}
       showsVerticalScrollIndicator={false}
       keyExtractor={(pokemon) => String(pokemon.id)}
       renderItem={({ item }) => <PokemonCard pokemon={item}/>}
       contentContainerStyle = {styles.flatListContentContainer}
       onEndReached = {isNext && loadMore}
-      onEndReachedThreshold = {0.1}
+      onEndReachedThreshold = {0.2}
       ListFooterComponent = {
         isNext &&(
           <ActivityIndicator
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
 
     spinner:{
-      marginTop:20,
+      marginTop:30,
       marginBottom:50,
     }
 });

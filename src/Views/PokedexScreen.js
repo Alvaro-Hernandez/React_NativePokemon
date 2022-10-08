@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { getPokemonsApi, getPokemonsDeatilsByUrlApi } from "../Api/Pokemon";
 import PokemonList from "../Components/PokemonList";
 
@@ -61,15 +61,11 @@ export default function PokedexScreen() {
   };
 
   return (
-    <ScrollView>
-      <SafeAreaView>
-        <PokemonList
-          pokemons={pokemons}
-          loadPokemons={loadPokemons}
-          nextUrl={nextUrl}
-        />
-      </SafeAreaView>
-    </ScrollView>
+    <PokemonList
+      pokemons={pokemons}
+      loadPokemons={loadPokemons}
+      isNext={nextUrl}
+    />
   );
 }
 
