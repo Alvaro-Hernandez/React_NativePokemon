@@ -6,10 +6,12 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React from "react";
+import { useNavigation } from '@react-navigation/native';
 import getColorByPokemonType from "../Utils/getColorByPokemonType";
 
 export default function PokemonCard(props) {
   const { pokemon } = props;
+  const navigation = useNavigation();
   //Para evaluar si estamos reciebiendo las props de cada pokemon
   //Lo hacemos atraves de un console
   //console.log(props);
@@ -24,8 +26,12 @@ export default function PokemonCard(props) {
   const bgStyle = { backgroundColor: pokemonColor, ...styles.bgStyles };
 
   const goToPokemon = () => {
-    console.log(`Vamos al Pokemon: ${pokemon.name}`);
-    console.log(pokemon);
+    //con este console podemos ver el id del pokemon que selecionamos
+    //console.log(pokemon.id);
+    //Con este console puedo ver todas las props de mi pokemon
+    //console.log(pokemon);
+    //con navigation solo podemos navegar y enviar datos planos nada de funciones
+    navigation.navigate('Pokemon', {id:pokemon.id});
   };
 
   return (
