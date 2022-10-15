@@ -6,10 +6,10 @@ export default function HeaderPokemon(props) {
   const {name, id, image, type} = props;
   const color = getColorByPokemonType(type);
   //Con este console podemos ver el color hexadecimal por el tipo de pokemon 
-  console.log(color);
+  //console.log(color);
   
   //Con este console podemos ver todos los parametros que estamos esperando 
-  console.log(props);
+  //console.log(props);
   const bgStyle = [{backgroundColor: color, ...styles.bgHeader}]
 
   return (
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
     bgHeader:{
         width: '100%',
-        height: 500,
+        height: 350,
         position: 'absolute',
         borderBottomRightRadius: '90%',
         borderBottomLeftRadius: '90%',
@@ -67,12 +67,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        top:30
+        top:-40
     },
 
     image: {
-        width:350,
-        height:350
+        width:300,
+        height:300
     }
 
 });

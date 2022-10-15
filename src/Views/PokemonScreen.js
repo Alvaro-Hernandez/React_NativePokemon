@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ScrollView, Text } from "react-native";
 import { getPokemonDetailsAPI } from "../Api/Pokemon";
 import HeaderPokemon from "../Components/Components_Pokemon/HeaderPokemon";
+import TypePokemon from "../Components/Components_Pokemon/TypePokemon";
 
 export default function PokemosScreen(props) {
   const {
@@ -32,6 +33,7 @@ export default function PokemosScreen(props) {
         image={pokemon.sprites.other["official-artwork"].front_default}
         type={pokemon.types[0].type.name}
       />
+      <TypePokemon types={pokemon.types}/>
     </ScrollView>
   );
 }
