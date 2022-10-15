@@ -19,7 +19,7 @@ export default function PokemonList(props) {
       renderItem={({ item }) => <PokemonCard pokemon={item}/>}
       contentContainerStyle = {styles.flatListContentContainer}
       onEndReached = {isNext && loadMore}
-      onEndReachedThreshold = {0.2}
+      onEndReachedThreshold = {0.1}
       ListFooterComponent = {
         isNext &&(
           <ActivityIndicator
