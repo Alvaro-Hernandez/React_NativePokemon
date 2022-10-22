@@ -4,7 +4,7 @@ import React from 'react'
 export default function FavoriteScreen() {
   return (
     <SafeAreaView>
-      <Text>FavoriteScreen</Text>
+      <Text>Favoritos</Text>
     </SafeAreaView>
   )
 }
