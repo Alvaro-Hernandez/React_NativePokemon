@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, Text } from "react-native";
+import Ionicons from "react-native-vector-icons/FontAwesome5";
 import { getPokemonDetailsAPI } from "../Api/Pokemon";
 import HeaderPokemon from "../Components/Components_Pokemon/HeaderPokemon";
 import TypePokemon from "../Components/Components_Pokemon/TypePokemon";
@@ -12,6 +13,21 @@ export default function PokemosScreen(props) {
   } = props;
 
   const [pokemon, setPokemon] = useState(null);
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => null,
+      headerLeft: () => (
+        <Ionicons
+          name="arrow-left"
+          color="tomato"
+          size={20}
+          style={{ marginLeft: 20 }}
+          onPress={navigation.goBack}
+        />
+      ),
+    });
+  }, [navigation, params]);
 
   useEffect(() => {
     (async () => {
@@ -34,8 +50,8 @@ export default function PokemosScreen(props) {
         image={pokemon.sprites.other["official-artwork"].front_default}
         type={pokemon.types[0].type.name}
       />
-      <TypePokemon types={pokemon.types}/>
-      <StatsPokemos stats={pokemon.stats}/> 
+      <TypePokemon types={pokemon.types} />
+      <StatsPokemos stats={pokemon.stats} />
     </ScrollView>
   );
 }
